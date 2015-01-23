@@ -50,4 +50,5 @@ end
 python_pip 'setuptools' do
   action :upgrade
   version node['python']['setuptools_version']
+  not_if "easy_install --version | grep #{node['python']['setuptools_version']}"
 end
