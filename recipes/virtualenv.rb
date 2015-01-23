@@ -23,4 +23,5 @@ include_recipe "python::pip"
 python_pip "virtualenv" do
   action :upgrade
   version node['python']['virtualenv_version']
+  not_if "virtualenv --version | grep #{node['python']['setuptools_version']}"
 end
